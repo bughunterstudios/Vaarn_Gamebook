@@ -1,5 +1,5 @@
 === CricketCave ===
-You cause minute avelanches of pebels and dust as you slip up the sand towards the small cave. Peering in the dark entrance you can barely see that the walls only extend a few arm lengths back. You step into the gloom and your eyes adjust until you can start the make out the piles of ancient rags and dried feces. Your eyes finish adjusting and you see one of the piles of rags in the center of the cave is actually a dessicated corpse.
+You cause minute avelanches of pebels and dust as you slip up the sand towards the small cave. Peering in the dark entrance you can barely see that the walls only extend a few arm lengths back. {inv ? glowstone: You pull out your glowstone and you can see the cave is filled with piles of ancient rags and dried feces. The dim green light lets you | You step into the gloom and your eyes adjust until you can start the make out the piles of ancient rags and dried feces. Your eyes finish adjusting and you} see one of the piles of rags in the center of the cave is actually a dessicated corpse.
 
 * Approach the corpse.
     -> DessicatedCricketCorpse
@@ -43,14 +43,14 @@ Perhaps you have nothing to fear?
     * It is better to leave the dead with their treasures. Leave for the archive.
         -> LeaveCave
     -else:
-    As you reach towards the object you hear a scraping and chittering sound behind you. Quickly you draw your rapier and turn to face the sound, but you are not quick enough.
+    As you reach towards the object you hear a scraping and chittering sound behind you. Quickly you draw your {weapon} and turn to face the sound, but you are not quick enough.
 
     * You feel a sudden heavy weight on your back as some creature jumps onto you.
         -> CricketJumpYou
 }
 
 = CricketJumpYou
-Arm and rapier flail as the squeaking object bashes at the backpack on your shoulders. A horrible squeal reverberates as you manage to get a solid stab at the thing on your back. Falling on the ground you see a quick dark shape leap out of the cave leaving only a large twitching cricket leg on the ground.
+Arm and {weapon} flail as the squeaking object bashes at the backpack on your shoulders. A horrible squeal reverberates as you manage to get a solid {inv ? ornate_rifle: stab | bash} at the thing on your back. Falling on the ground you see a quick dark shape leap out of the cave leaving only a large twitching cricket leg on the ground.
 
 You check your face and arms. No wounds, only spatterings of insect blood. Your backpack did not fair so well. Bite marks tear through the straps and you find yourself one ration short.
 
@@ -63,12 +63,20 @@ You check your face and arms. No wounds, only spatterings of insect blood. Your 
 = WaitFromCricket
 You stay completely still in the sand attempting to control your breathing.
 
-After a few more minutes of waiting you spot the source of the sound. A large and fat grey cricket clambers up the side of the arroyo towards the cave. You watch as it stands in the entrance, circles the perimeter, and then hops from view away over the edge of the rocky canyon.
-
-* Surely it isn't coming back. Go investigate the cave.
+After a few more minutes of waiting you spot the source of the sound. A large and fat grey cricket clambers up the side of the arroyo towards the cave. You watch as it stands in the entrance.
+* Keep watching to see what it does.
+    The cricket circles the perimeter, and then hops from view away over the edge of the rocky canyon.
+    * * Surely it isn't coming back. Go investigate the cave.
     -> CricketCave
-
-* You don't wish to get eaten. Continue on towards the archive.
+    * * You don't wish to get eaten. Continue on towards the archive.
+    -> MartyrTrees
+* Flee while it is distracted.
+    -> MartyrTrees
+* {inv ? ornate_rifle} Shoot it while it stands still.
+    The sound of your rifle reverberates through the arroyos as the grey cricket slumps into the sand. Hopefully that was the only one.
+    * * Go investigate the cave.
+    -> CricketCave
+    * * Continue on towards the archive.
     -> MartyrTrees
 
 = AttackCricket
