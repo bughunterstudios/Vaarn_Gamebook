@@ -34,7 +34,7 @@ Perhaps you have nothing to fear?
     
 = CricketCorpseItem
 {
-    -HideFromCricket or AttackCricket:
+    -HideFromCricket or AttackCricket or CricketJumpYou:
     You reach into the ribcage, grave dust rubbing against your arm. Your hand pulls out a flat metalic disk. As you rotate it, the surface shimmers with rainbow light. A hole in the center gives the impression of an iris in a metalic eye.
 
     * Pocket the disk. It could come in handy later.
@@ -87,7 +87,7 @@ You bury the disk in your backpack. A spare rag will hopefully protect it's glea
 You flee from the cave entrance leaving it's mysteries to some other hapless wanderer. Rocks and pebels slide away from your feet as you slip down the sands.
 
 {
-    - WaitFromCricket or AttackCricket:
+    - WaitFromCricket or AttackCricket or CricketJumpYou:
     * Continue towards the archive.
         -> MartyrTrees
     - else:
@@ -102,7 +102,7 @@ You flee from the cave entrance leaving it's mysteries to some other hapless wan
     
 = LeaveCave
 {
-    - WaitFromCricket or AttackCricket:
+    - WaitFromCricket or AttackCricket or CricketJumpYou:
     Rocks and pebels slide away from your feet as you slip down the sands away from the cave.
     * You continue on towards the archive.
         -> MartyrTrees
@@ -130,7 +130,7 @@ You flee from the cave entrance leaving it's mysteries to some other hapless wan
 = ArgentManna
 You pull a blood red frond towards your eyes to better see the white objects. The white lumps are piles of miniscule crystalized sugar wafers: argent manna.
 
-* Amongst the piles of sugar you see the microscopic black bodies of Themis aphids[.] sucking at the frond, and emitting droplets of nectar from their rear. On the backs of the aphids you see vague shape of the titan symbol responsible for their name.
+* Amongst the piles of sugar you see the microscopic black bodies of Themis aphids[.] sucking at the frond, and emitting droplets of nectar from their rear. On the backs of the aphids you see the vague shape of the titan symbol responsible for their name.
 -
 * Scraping the argent manna from the fronds could provide you with a day of rations[.], but perhaps the archivists intent to harvest it themselves.
 -

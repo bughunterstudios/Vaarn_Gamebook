@@ -1,9 +1,16 @@
 INCLUDE ArchiveExterior.ink
+
 You were born in an ancient nest of chrome and glass: one of the arcologies left behind by past generations.
 
 * This favoured birth makes you a true-kin[.], untouched by the peculiar genetics of the outside Urth.
+* This cursed home kept you away from the sun and fresh air[.], blissfully unaware of the wonders outside your walls.
 -
-* Though you are told your blood line is favoured[.], the tattoos on your face mark you as a servitor. A life of hard labour would have been your fate, had you not fled the old societies to discover your true calling. Now you are a wanderer, vagabond, and ne're-do-well. The harsh desert sands have been no kinder than your old life treated you, but at least you are free.
+* Though you are told your blood line is favoured[.], the tattoos on your face mark you as a servitor. A life of hard labour would have been your fate, had you not fled the old societies to discover your true calling.
+-
+* Now you are a wanderer, vagabond, and ne're-do-well.
+* Now you are a warrior, gladiator, and sellsword.
+* Now you are a pilgrim, scavenger, and poet.
+-<> The harsh desert sands have been no kinder than your old life treated you, but at least you are free.
 -
 * You have begun your journey with[...] an autoglot translator, an ancient rapier, ten days of dried rations and water, and the shabby robe enveloping you.
 
