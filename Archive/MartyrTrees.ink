@@ -38,9 +38,8 @@ You slip down the sands towards the martyr tree grove. As you approach the red t
                 You are dead.
                 -> END
         }
-    + + Charge towards the synth with your {random_melee()}.
-        You run across the sand towards the stumbling synth. You zig-zag between martyr trees to hopefully avoid whatever weapon the synth is equiped with.
-        Your daring run is cut short as a crackling plasma shot blasts a hole through your stomach.
+    + + (charge) Charge towards the synth with your {random_melee()}.
+        You run across the sand towards the stumbling synth. You zig-zag between martyr trees to hopefully avoid {shot_the_synth: the plasma rifle | whatever weapon} the synth is equiped with.
         {
             - inv ? tarnished_brigandine:
                 Your daring run is cut short as a crackling plasma shot rings across your brigandine. You fall head first into the sand.
@@ -54,8 +53,22 @@ You slip down the sands towards the martyr tree grove. As you approach the red t
         }
     + + Drop to the ground.
     + + Flee towards the archive.
+        -> ArchiveExterior.FleeFromSynth
 + Hide behind a nearby martyr tree.
+    You hide behind a martyr tree that is just wide enough to conceal you. You cautiously watch between the fronds. From out of the canyon staggers a bizzare box shaped synth on two rusting legs. From between it's legs emerges a heavy gun. It's antenae wiggle in the air as it begins circling the perimeter of the grove.
+    - - (hide)
+    * * (shot_the_synth) {ranged_weapon} Shoot it with your {random_ranged()} before the synth has time to react.
+        You aim down the sights of your ornate rifle and shoot at the center of the metal box. You hear a loud ping of metal as your bullet richochets off the stumbling synth.
+        Next you hear the ethereal crackle of plasma fire as a martyr tree explodes into flame and char.
+        The boxy synth is begining to stumble towards you through the trees.
+        -> hide
+    * * Charge towards the synth with your {random_melee()}.
+        -> charge
+    * * {not shot_the_synth} Keep waiting and watching.
+    + + No use shooting it. Flee towards the archive.
+        -> ArchiveExterior.FleeFromSynth
 + Flee towards the archive.
+    -> ArchiveExterior.FleeFromSynth
     
 = ArgentManna
 You pull a blood red frond towards your eyes to better see the white objects. The white lumps are piles of miniscule crystalized sugar wafers: argent manna.
