@@ -1,21 +1,36 @@
 INCLUDE Archive/CricketCave.ink
 INCLUDE Archive/MartyrTrees.ink
 INCLUDE Archive/ArchiveExterior.ink
+INCLUDE Archive/ArchiveInterior.ink
 
+VAR food = 5
+LIST inv = (ancient_rapier), lockpicks, ornate_rifle, glowstone, poetry_book, thermal_goggles, ritual_lyre, tarnished_brigandine, cricket_disk
+LIST melee_weapon = (rapier)
+LIST ranged_weapon = rifle
+LIST class = Thief, Poet, Warrior, Pilgrim, Scavenger, Musician, Gladiator
 
-
-VAR food = 10
-LIST inv = ancient_rapier, lockpick, ornate_rifle, glowstone, ritual_spear, drug
-VAR weapon = "rapier"
-LIST class = wanderer, vagabond, warrior, gladiator, sellsword, pilgrim, scavenger, poet
-
-    -> Start
+-> Start
 
 === function get(x)
     ~ inv += x
+    
+=== function lose(x)
+    ~ inv -= x
 
 === function print_inventory()
     {print_inventory_helper(inv, "Nothing but lint and dirt.")}
+
+== function print_list(list, if_empty)
+    {LIST_COUNT(list):
+    - 2:
+        	{LIST_MIN(list)} and {print_list(list - LIST_MIN(list), if_empty)}
+    - 1:
+        	{list}
+    - 0:
+			{if_empty}
+    - else:
+      		{LIST_MIN(list)}, {print_list(list - LIST_MIN(list), if_empty)}
+    }
 
 === function print_inventory_helper(list, if_empty)
     {LIST_COUNT(list):
@@ -31,9 +46,9 @@ LIST class = wanderer, vagabond, warrior, gladiator, sellsword, pilgrim, scaveng
     
 === function pretty_print_item(item)
     { item ? ancient_rapier:
-        an ancient rapier you found in an autarch's tomb
+        an ancient rapier you found in an Autarch's tomb
     }
-    { item ? lockpick:
+    { item ? lockpicks:
         a set of lockpicks
     }
     { item ? ornate_rifle:
@@ -42,13 +57,24 @@ LIST class = wanderer, vagabond, warrior, gladiator, sellsword, pilgrim, scaveng
     { item ? glowstone:
         a dim green glowstone
     }
-    { item ? ritual_spear:
-        a ritual spear you were gifted by the Faa
+    { item ? poetry_book:
+        a sunbleached book of poetry
     }
-    { item ? drug:
-        some psychedelic drugs with unknown properties
+    { item ? thermal_goggles:
+        a pair of thermal imaging goggles
     }
-    
+    { item ? ritual_lyre:
+        a ritual lyre you were gifted by a Faa
+    }
+    { item ? tarnished_brigandine:
+        a tarnished brigandine
+    }
+
+=== function random_melee()
+    {LIST_RANDOM(melee_weapon)}
+
+=== function random_ranged()
+    {LIST_RANDOM(ranged_weapon)} 
 
 === Start ===
 You were born in an ancient nest of chrome and glass: one of the arcologies left behind by past generations.
@@ -57,32 +83,41 @@ You were born in an ancient nest of chrome and glass: one of the arcologies left
 + This cursed home kept you away from the sun and fresh air[.], blissfully unaware of the wonders outside your walls.
 -
 + Though you are told your blood line is favoured[.], the tattoos on your face mark you as a servitor. A life of hard labour would have been your fate, had you not fled the old societies to discover your true calling.
--
-+ Now you are a wanderer, vagabond, and ne're-do-well.
-~ get(ancient_rapier)
-~ weapon = "rapier"
-~ get(lockpick)
-~ class += wanderer
-~ class += vagabond
-+ Now you are a warrior, gladiator, and sellsword.
-~ get(ornate_rifle)
-~ weapon = "rifle"
-~ get(glowstone)
-~ class += warrior
-~ class += gladiator
-~ class += sellsword
-+ Now you are a pilgrim, scavenger, and poet.
-~ get(ritual_spear)
-~ weapon = "spear"
-~ get(drug)
-~ class += pilgrim
-~ class += scavenger
-~ class += poet
--<> The harsh desert sands have been no kinder than your old life treated you, but at least you are free.
+- (loop)
+* [Now you are a {class}{LIST_COUNT(class) > 0: and} Thief]
+    ~ class += Thief
+    ~ get(lockpicks)
+* [Now you are a {class}{LIST_COUNT(class) > 0: and} Poet]
+    ~ class += Poet
+    ~ get(poetry_book)
+* [Now you are a {class}{LIST_COUNT(class) > 0: and} Warrior]
+    ~ class += Warrior
+    ~ get(ornate_rifle)
+    ~ ranged_weapon += rifle
+* [Now you are a {class}{LIST_COUNT(class) > 0: and} Pilgrim]
+    ~ class += Pilgrim
+    ~ get(glowstone)
+* [Now you are a {class}{LIST_COUNT(class) > 0: and} Scavenger]
+    ~ class += Scavenger
+    ~ get(thermal_goggles)
+* [Now you are a {class}{LIST_COUNT(class) > 0: and} Musician]
+    ~ class += Musician
+    ~ get(ritual_lyre)
+* [Now you are a {class}{LIST_COUNT(class) > 0: and} Gladiator]
+    ~ class += Gladiator
+    ~ get(tarnished_brigandine)
+- {
+    - loop == 3:
+        Now you are a {print_list(class, "nothing")}.
+        -> continue
+    - else:
+        -> loop
+}
+- (continue) <> The harsh desert sands have been no kinder than your old life treated you, but at least you are free.
 -
 + You have begun your journey with[...]: {food} days of dried rations and water, {print_inventory()}.
 
-During your previous journeys you gained the mystic gift of healing hands.
+During your previous journeys you gained the mystic gift of healing hands from a psychoactive fungus.
 -
 + [Begin your journey.]
     -> QuestIntro
