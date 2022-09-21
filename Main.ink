@@ -1,7 +1,13 @@
-INCLUDE ArchiveExterior.ink
+INCLUDE Archive/CricketCave.ink
+INCLUDE Archive/MartyrTrees.ink
+INCLUDE Archive/ArchiveExterior.ink
+
+
+
 VAR food = 10
 LIST inv = ancient_rapier, lockpick, ornate_rifle, glowstone, ritual_spear, drug
 VAR weapon = "rapier"
+LIST class = wanderer, vagabond, warrior, gladiator, sellsword, pilgrim, scavenger, poet
 
     -> Start
 
@@ -56,14 +62,22 @@ You were born in an ancient nest of chrome and glass: one of the arcologies left
 ~ get(ancient_rapier)
 ~ weapon = "rapier"
 ~ get(lockpick)
+~ class += wanderer
+~ class += vagabond
 + Now you are a warrior, gladiator, and sellsword.
 ~ get(ornate_rifle)
 ~ weapon = "rifle"
 ~ get(glowstone)
+~ class += warrior
+~ class += gladiator
+~ class += sellsword
 + Now you are a pilgrim, scavenger, and poet.
 ~ get(ritual_spear)
 ~ weapon = "spear"
 ~ get(drug)
+~ class += pilgrim
+~ class += scavenger
+~ class += poet
 -<> The harsh desert sands have been no kinder than your old life treated you, but at least you are free.
 -
 + You have begun your journey with[...]: {food} days of dried rations and water, {print_inventory()}.
@@ -84,7 +98,7 @@ You have been hired as a guide; perhaps a foolish endeavour for someone so unfam
     -> JourneyStart
     
 === JourneyStart ===
-Blue sand whispers beneath your tired feet as you arrive at your destination. You thank whatever gods are watching that you managed to find it among these snaking arroyos and sinister caves.
+Blue sand whispers beneath your tired feet as you arrive at your destination. You thank whatever gods are watching that you managed to find it among these snaking arroyos and sinister caves. The bulbous red sun is close to setting, leaving your current path in shade.
 
 + Amongst a large martyr tree grove sits the archive[.]: a squat hexagonal complex with large hideous eyes carved in relief. One eye seems to watch your approach coldly. An uninviting exterior, but perhaps the inhabitants are charming.
 -
