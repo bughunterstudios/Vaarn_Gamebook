@@ -4,7 +4,7 @@ INCLUDE Archive/ArchiveExterior.ink
 INCLUDE Archive/ArchiveInterior.ink
 
 VAR food = 5
-LIST inv = (ancient_rapier), lockpicks, ornate_rifle, glowstone, poetry_book, thermal_goggles, ritual_lyre, tarnished_brigandine, cricket_disk
+LIST inv = (ancient_rapier), lockpicks, ornate_rifle, glowstone, poetry_book, thermal_goggles, ritual_lyre, tarnished_brigandine, cricket_disk, powercell
 LIST melee_weapon = (rapier)
 LIST ranged_weapon = rifle
 LIST class = Thief, Poet, Warrior, Pilgrim, Scavenger, Musician, Gladiator

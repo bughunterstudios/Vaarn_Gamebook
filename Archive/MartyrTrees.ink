@@ -21,11 +21,11 @@
 }
 
 = SinisterWhirring
-You slip down the sands towards the martyr tree grove. As you approach the red trees, and sinister carven eyes, you hear {CricketCave.WorryingNoises: the | a} whirring machinery sound {CricketCave.WorryingNoises: grow louder} behind you. {inv ? thermal_goggles: You put on your thermal goggles. Past the cold landscape you can see the red outline of some boxy machine.} Whatever it is, it is coming down the arroyos closer to your position.
+You slip down the sands towards the martyr tree grove. As you approach the red trees, and sinister carven eyes, you hear {CricketCave.WorryingNoises: the | a} whirring machinery sound {CricketCave.WorryingNoises: grow louder} behind you. {inv ? thermal_goggles: Through your thermal goggles you see past the cold landscape and spy the red outline of some boxy machine.} Whatever it is, it is coming down the arroyos closer to your position.
     
 + Stand your ground with your {ranged_weapon: {random_ranged()} | {random_melee()}} ready.
     You draw your {ranged_weapon: {random_ranged()} | {random_melee()}} and wait: eyes scanning through the trees. From out of the canyon staggers a bizzare box shaped synth on two rusting legs. From between it's legs emerges a heavy gun. Antenae waggle in the air as it stops and aims directly at you.
-    + + {ranged_weapon} Shoot it with your {random_ranged()} before the synth has time to react.
+    + + (shoot_spotted) {ranged_weapon} Shoot it with your {random_ranged()} before the synth has time to react.
         You aim down the sights of your ornate rifle and shoot at the center of the metal box. You hear a loud ping of metal as your bullet richochets off the stumbling synth.
         {
             - inv ? tarnished_brigandine:
@@ -52,6 +52,13 @@ You slip down the sands towards the martyr tree grove. As you approach the red t
                 -> END
         }
     + + Drop to the ground.
+        You fall to the ground and try to flatten yourself against the sand. Just in time. You hear the sickening crackle of plasma shot as a martyr tree behind you explodes into flames.
+        + + + Try and shoot the synth with your {random_ranged()}.
+            -> shoot_spotted
+        + + + Get up and try to charge at the synth with your {random_melee()}.
+            -> charge
+        + + + Flee towards the archive.
+            -> ArchiveExterior.FleeFromSynth
     + + Flee towards the archive.
         -> ArchiveExterior.FleeFromSynth
 + Hide behind a nearby martyr tree.
@@ -64,12 +71,27 @@ You slip down the sands towards the martyr tree grove. As you approach the red t
         -> hide
     * * Charge towards the synth with your {random_melee()}.
         -> charge
-    * * {not shot_the_synth} Keep waiting and watching.
-    + + No use shooting it. Flee towards the archive.
+    * * (wait) {not shot_the_synth} Keep waiting and watching.
+        Slowly the synth stumbles past the martyr trees. It swivels it's box shaped body around searching. It is nearly at your position, but hasn't seemed to notice you.
+        -> hide
+    * * {wait} Sneak behind the synth and try to tip it over.
+        -> KillSynth
+    + + Flee towards the archive before it notices you.
         -> ArchiveExterior.FleeFromSynth
 + Flee towards the archive.
     -> ArchiveExterior.FleeFromSynth
-    
+
+= KillSynth
+You quietly pad across the sand until you are directly behind the synth. Quickly you lift it's side with all your strength until the heavy box tips over. You grab the desperately wiggling legs and continue tipping the synth until it is upside down.
+The legs and gun still move, but the synth has no chance of righting itself.
++ {class ? Scavenger} This synth could have valuable parts to harvest.
+    You tear off it's undercarriage and detach the powercell inside. Not many of the ancient components are cleanly detachable, but this powercell could be quite valuable. You fit it inside your backpack. Hopefully it will be worth the weight it adds.
+    ~ get(powercell)
+    + + Nothing left here. Approach the archive.
+        -> ArchiveExterior  
++ Leave it be. Approach the archive.
+    -> ArchiveExterior
+            
 = ArgentManna
 You pull a blood red frond towards your eyes to better see the white objects. The white lumps are piles of miniscule crystalized sugar wafers: argent manna.
 
@@ -86,6 +108,3 @@ You pull a blood red frond towards your eyes to better see the white objects. Th
 = HarvestManna
 Using the side of your {random_melee()}, you scrape piles of argent manna into a leather pouch. Many aphids fall as well: they will add vital protein.
     ~ food += 1
-
-Something happens.
-    -> END
