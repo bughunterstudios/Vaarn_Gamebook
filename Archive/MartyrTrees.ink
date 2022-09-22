@@ -21,10 +21,10 @@
 }
 
 = SinisterWhirring
-{FollowPlaney: You return to the martyr tree grove surrounding the archive. | You slip down the sands towards the martyr tree grove.} As you approach the red trees, and sinister carven eyes of the archive, you hear {CricketCave.WorryingNoises: the | a} whirring machinery sound {CricketCave.WorryingNoises: grow louder} {FollowPlaney: farther up the arroyo | behind you}. {inv ? thermal_goggles: Through your thermal goggles you see past the cold landscape and spy the red outline of some boxy machine.} Whatever it is, it is coming down the arroyos closer to your position.
+{FollowPlaney: You return to the martyr tree grove surrounding the archive. | You slip down the sands towards the martyr tree grove.} As you approach the red trees, and sinister carven eyes of the archive, you hear {CricketCave.WorryingNoises:the|a} whirring machinery sound {CricketCave.WorryingNoises: grow louder} {FollowPlaney: farther up the arroyo where you first saw the archive|behind you}. {inv ? thermal_goggles: Through your thermal goggles you see past the cold landscape and spy the red outline of some boxy machine.} Whatever it is, it is coming down the arroyos closer to your position.
     
 + Stand your ground with your {ranged_weapon: {random_ranged()} | {random_melee()}} ready.
-    You draw your {ranged_weapon: {random_ranged()} | {random_melee()}} and wait: eyes scanning through the trees. From out of the canyon staggers a bizzare box shaped synth on two rusting legs. From between it's legs emerges a heavy gun. Antenae waggle in the air as it stops and aims directly at you.
+    You draw your {ranged_weapon: {random_ranged()} | {random_melee()}} and wait: eyes scanning through the trees. From out of the canyon staggers a bizzare box shaped synth on two rusting legs. From between it's legs emerges a heavy gun. Antenae waggle in the air as it stops and aims directly at you. {class ? Pilgrim: You've heard pilgrims refer to this kind of ancient war-synth as a "stumbling drone". Their boxy bodies are said to be easily tippable.}
     + + (shoot_spotted) {ranged_weapon} Shoot it with your {random_ranged()} before the synth has time to react.
         You aim down the sights of your ornate rifle and shoot at the center of the metal box. You hear a loud ping of metal as your bullet richochets off the stumbling synth.
         {
@@ -62,7 +62,7 @@
     + + Flee towards the archive.
         -> ArchiveExterior.FleeFromSynth
 + Hide behind a nearby martyr tree.
-    You hide behind a martyr tree that is just wide enough to conceal you. You cautiously watch between the fronds. From out of the canyon staggers a bizzare box shaped synth on two rusting legs. From between it's legs emerges a heavy gun. It's antenae wiggle in the air as it begins circling the perimeter of the grove.
+    You hide behind a martyr tree that is just wide enough to conceal you. You cautiously watch between the fronds. From out of the canyon staggers a bizzare box shaped synth on two rusting legs. From between it's legs emerges a heavy gun. It's antenae wiggle in the air as it begins circling the perimeter of the grove. {class ? Pilgrim: You've heard pilgrims refer to this kind of ancient war-synth as a "stumbling drone". Their boxy bodies are said to be easily tippable.}
     - - (hide)
     * * (shot_the_synth) {ranged_weapon} Shoot it with your {random_ranged()} before the synth has time to react.
         You aim down the sights of your ornate rifle and shoot at the center of the metal box. You hear a loud ping of metal as your bullet richochets off the stumbling synth.
@@ -88,7 +88,11 @@ The legs and gun still move, but the synth has no chance of righting itself.
     You tear off it's undercarriage and detach the powercell inside. Not many of the ancient components are cleanly detachable, but this powercell could be quite valuable. You fit it inside your backpack. Hopefully it will be worth the weight it adds.
     ~ get(powercell)
     + + Nothing left here. Approach the archive.
-        -> ArchiveExterior  
+        -> ArchiveExterior
++ Destroy the synth so it can't attack anyone else.
+    With a nearby rock you begin bashing the undercarriage of the synth. The legs wiggle in a panic until your rock dismantles some vital component inside.
+    + + The synth is dead. Approach the archive.
+        -> ArchiveExterior
 + Leave it be. Approach the archive.
     -> ArchiveExterior
             
@@ -125,4 +129,6 @@ Using the side of your {random_melee()}, you scrape piles of argent manna into a
     -> ArchiveExterior
     
 = FollowPlaney
-    -> END
+Stuff happens.
++ Return to the archive.
+    -> SinisterWhirring
