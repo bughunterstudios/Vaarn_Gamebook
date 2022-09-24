@@ -38,7 +38,7 @@ Perhaps you have nothing to fear?
     
 = CricketCorpseItem
 {
-    -WaitFromCricket or AttackCricket or CricketJumpYou:
+    -WaitFromCricket or AttackCricket or ShootCricket or CricketJumpYou:
     You reach into the ribcage, grave dust rubbing against your arm. Your hand pulls out a flat metalic disk. As you rotate it, the surface shimmers with rainbow light. A hole in the center gives the impression of an iris in a metalic eye. {class ? Scavenger: It must be some kind of ancient data disc. Perhaps it is something from the archive?}
 
     + Pocket the disk. It could come in handy later.
@@ -110,7 +110,7 @@ You bury the disk in your backpack. A spare rag will hopefully protect it's glea
 You flee from the cave entrance leaving it's mysteries to some other hapless wanderer. Rocks and pebels slide away from your feet as you slip down the sands.
 
 {
-    - WaitFromCricket or AttackCricket or CricketJumpYou:
+    - WaitFromCricket or AttackCricket or ShootCricket or CricketJumpYou:
     + Continue towards the archive.
         -> MartyrTrees
     - else:
@@ -128,7 +128,7 @@ You flee from the cave entrance leaving it's mysteries to some other hapless wan
     
 = LeaveCave
 {
-    - WaitFromCricket or AttackCricket or CricketJumpYou:
+    - WaitFromCricket or AttackCricket or ShootCricket or CricketJumpYou:
     Rocks and pebels slide away from your feet as you slip down the sands away from the cave.
     + You continue on towards the archive.
         -> MartyrTrees
